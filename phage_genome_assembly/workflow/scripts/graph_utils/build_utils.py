@@ -2,6 +2,7 @@ import re
 
 from Bio import SeqIO
 from igraph import *
+from collections import defaultdict
 
 # -------------------------------------------------------------------
 # Bidirectional map
