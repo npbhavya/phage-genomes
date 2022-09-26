@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=64000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 12:13:02 2022]
+rule flye:
+    input: example/filtlong/reads-filtlong.fastq
+    output: example/assembly/reads-flye/assembly.fasta, example/assembly/reads-flye/assembly_graph.gfa, example/assembly/reads-flye/assembly_info.txt
+    log: example/logs/flye_reads.log
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    threads: 10
+    resources: mem_mb=64000, disk_mb=1000, tmpdir=/local/nala0006/1156908, time=1440
+
+
+            flye --nano-corr example/filtlong/reads-filtlong.fastq --threads 10 --out-dir example/assembly/reads-flye 2> example/logs/flye_reads.log
+        
+Activating conda environment: phage_genome_assembly/workflow/conda/6b45025796cf16cb42ffa3cdff5d96fb_
+[Mon Sep 26 12:13:58 2022]
+Finished job 0.
+1 of 1 steps (100%) done
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=64000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 14:34:09 2022]
+rule flye:
+    input: example/filtlong/reads-filtlong.fastq
+    output: example/assembly/reads-flye/assembly.fasta, example/assembly/reads-flye/assembly_graph.gfa, example/assembly/reads-flye/assembly_info.txt
+    log: example/logs/flye_reads.log
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    threads: 10
+    resources: mem_mb=64000, disk_mb=1000, tmpdir=/local/nala0006/1156976, time=1440
+
+
+            flye --nano-corr example/filtlong/reads-filtlong.fastq --threads 10 --out-dir example/assembly/reads-flye 2> example/logs/flye_reads.log
+        
+Activating conda environment: phage_genome_assembly/workflow/conda/6b45025796cf16cb42ffa3cdff5d96fb_
+[Mon Sep 26 14:35:16 2022]
+Finished job 0.
+1 of 1 steps (100%) done

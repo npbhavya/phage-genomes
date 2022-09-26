@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=2000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 15:25:04 2022]
+rule fastg:
+    input: example/assembly/reads-megahit/reads.contigs.fa
+    output: example/assembly/reads-megahit/reads.fastg
+    log: example/logs/megahit_reads_fastg.log
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    resources: mem_mb=2000, disk_mb=1000, tmpdir=/local/nala0006/1156996, time=1440
+
+
+            if [[ -s example/assembly/reads-megahit/reads.contigs.fa ]]; then
+                kmer=$(head -1 example/assembly/reads-megahit/reads.contigs.fa | sed 's/>//' | sed 's/_.*//')
+                megahit_toolkit contig2fastg $kmer example/assembly/reads-megahit/reads.contigs.fa >example/assembly/reads-megahit/reads.fastg
+            fi 2> example/logs/megahit_reads_fastg.log
+        
+Activating conda environment: phage_genome_assembly/workflow/conda/31e2b18eff4a931c78c3f7c4d71e76af_
+[Mon Sep 26 15:25:05 2022]
+Finished job 0.
+1 of 1 steps (100%) done

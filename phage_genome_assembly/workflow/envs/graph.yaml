@@ -11,4 +11,3 @@ dependencies:
     - python-igraph>=0.9.11
     - pandas>=1.4.3
     - scipy>=1.7.3
-

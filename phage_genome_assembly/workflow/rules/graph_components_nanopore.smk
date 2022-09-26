@@ -19,7 +19,7 @@ rule components_unicycler_nano:
     shell:
         """
             if [[ -s {input.contigs} ]]; then
-                python phages/phages.workflow/scripts/components.py -a unicycler -c {input.contigs} -g {input.graph} -o {params.o} 2> {log}
+                python phage_genome_assembly/workflow/scripts/components.py -a unicycler -c {input.contigs} -g {input.graph} -o {params.o} 2> {log}
             fi
         """
 
@@ -40,6 +40,6 @@ rule components_flye_nano:
     shell:
         """
             if [[ -s {input.contigs} ]]; then
-                python phages/phages.workflow/scripts/components.py -a flye -c {input.contigs} -p {input.path} -g {input.graph} -o {params.o} 2> {log}
+                python phage_genome_assembly/workflow/scripts/components.py -a flye -c {input.contigs} -p {input.path} -g {input.graph} -o {params.o} 2> {log}
             fi
         """

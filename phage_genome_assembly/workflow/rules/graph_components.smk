@@ -18,7 +18,7 @@ rule components_spades:
     shell:
         """
             if [[ -s {input.contigs} ]]; then
-                python phages/phages.workflow/scripts/components.py -a spades -c {input.contigs} -g {input.graph} -p {input.path} -o {params.o} 2> {log}
+                python phage_genome_assembly/workflow/scripts/components.py -a spades -c {input.contigs} -g {input.graph} -p {input.path} -o {params.o} 2> {log}
             fi
         """
 rule components_megahit:
@@ -37,6 +37,6 @@ rule components_megahit:
     shell:
         """
             if [[ -s {input.contigs} ]]; then
-                python phages/phages.workflow/scripts/components.py -a megahit -c {input.contigs} -g {input.graph} -o {params.o} 2> {log}
+                python phage_genome_assembly/workflow/scripts/components.py -a megahit -c {input.contigs} -g {input.graph} -o {params.o} 2> {log}
             fi
         """

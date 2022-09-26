@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=2000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 15:25:38 2022]
+rule viralverify_spades:
+    input: example/assembly/reads-spades/contigs.fasta, databases/Pfam35.0/Pfam-A.hmm.gz
+    output: example/assembly/reads-viralverify-spades/contigs_result_table.csv
+    log: example/logs/viralverify_spades_illumina_reads.log
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    threads: 10
+    resources: mem_mb=2000, disk_mb=1000, tmpdir=/local/nala0006/1156997, time=1440
+
+
+            if [[ -s example/assembly/reads-spades/contigs.fasta ]]; then
+                viralverify -f example/assembly/reads-spades/contigs.fasta --hmm databases/Pfam35.0/Pfam-A.hmm.gz -o example/assembly/reads-viralverify-spades -t 10 2> example/logs/viralverify_spades_illumina_reads.log
+            fi
+        
+Activating conda environment: phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_
+[Mon Sep 26 15:27:17 2022]
+Finished job 0.
+1 of 1 steps (100%) done

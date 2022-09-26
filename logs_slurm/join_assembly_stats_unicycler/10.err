@@ -1,0 +1,97 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=2000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 14:13:59 2022]
+rule join_assembly_stats_unicycler:
+    input: example/assembly/reads-nanopore-unicycler/reads-contigs.tsv, example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv, example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv
+    output: example/assembly/reads-assembly-stats_unicycler.tsv
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    resources: mem_mb=2000, disk_mb=1000, tmpdir=/local/nala0006/1156964, time=1440
+
+
+            if [[ -s example/assembly/reads-nanopore-unicycler/reads-contigs.tsv ]]; then
+                python phages/phages.workflow/scripts/joining_stats.py -c example/assembly/reads-nanopore-unicycler/reads-contigs.tsv -v example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv -g example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv -o example/assembly/reads-assembly-stats_unicycler.tsv
+            fi
+        
+python: can't open file '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phages/phages.workflow/scripts/joining_stats.py': [Errno 2] No such file or directory
+[Mon Sep 26 14:13:59 2022]
+Error in rule join_assembly_stats_unicycler:
+    jobid: 0
+    output: example/assembly/reads-assembly-stats_unicycler.tsv
+    shell:
+        
+            if [[ -s example/assembly/reads-nanopore-unicycler/reads-contigs.tsv ]]; then
+                python phages/phages.workflow/scripts/joining_stats.py -c example/assembly/reads-nanopore-unicycler/reads-contigs.tsv -v example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv -g example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv -o example/assembly/reads-assembly-stats_unicycler.tsv
+            fi
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=2000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 14:14:30 2022]
+rule join_assembly_stats_unicycler:
+    input: example/assembly/reads-nanopore-unicycler/reads-contigs.tsv, example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv, example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv
+    output: example/assembly/reads-assembly-stats_unicycler.tsv
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    resources: mem_mb=2000, disk_mb=1000, tmpdir=/local/nala0006/1156968, time=1440
+
+
+            if [[ -s example/assembly/reads-nanopore-unicycler/reads-contigs.tsv ]]; then
+                python phages/phages.workflow/scripts/joining_stats.py -c example/assembly/reads-nanopore-unicycler/reads-contigs.tsv -v example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv -g example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv -o example/assembly/reads-assembly-stats_unicycler.tsv
+            fi
+        
+python: can't open file '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phages/phages.workflow/scripts/joining_stats.py': [Errno 2] No such file or directory
+[Mon Sep 26 14:14:30 2022]
+Error in rule join_assembly_stats_unicycler:
+    jobid: 0
+    output: example/assembly/reads-assembly-stats_unicycler.tsv
+    shell:
+        
+            if [[ -s example/assembly/reads-nanopore-unicycler/reads-contigs.tsv ]]; then
+                python phages/phages.workflow/scripts/joining_stats.py -c example/assembly/reads-nanopore-unicycler/reads-contigs.tsv -v example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv -g example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv -o example/assembly/reads-assembly-stats_unicycler.tsv
+            fi
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=2000, disk_mb=1000, time=1440
+Select jobs to execute...
+
+[Mon Sep 26 14:36:53 2022]
+rule join_assembly_stats_unicycler:
+    input: example/assembly/reads-nanopore-unicycler/reads-contigs.tsv, example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv, example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv
+    output: example/assembly/reads-assembly-stats_unicycler.tsv
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    resources: mem_mb=2000, disk_mb=1000, tmpdir=/local/nala0006/1156984, time=1440
+
+
+            if [[ -s example/assembly/reads-nanopore-unicycler/reads-contigs.tsv ]]; then
+                python phage_genome_assembly/workflow/scripts/joining_stats.py -c example/assembly/reads-nanopore-unicycler/reads-contigs.tsv -v example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv -g example/assembly/reads-nanopore-unicycler/graph_seq_details_unicycler.tsv -o example/assembly/reads-assembly-stats_unicycler.tsv
+            fi
+        
+Activating conda environment: phage_genome_assembly/workflow/conda/585719f2b7a2cbc903c90c116365685a_
+[Mon Sep 26 14:37:10 2022]
+Finished job 0.
+1 of 1 steps (100%) done

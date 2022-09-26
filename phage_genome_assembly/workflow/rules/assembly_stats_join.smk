@@ -10,10 +10,11 @@ rule join_assembly_stats_spades:
         comp = os.path.join(ASSEMBLY, "{sample}-spades", "graph_seq_details_spades.tsv")
     output:
         tsv = os.path.join(ASSEMBLY, "{sample}-assembly-stats_spades.tsv")
+    conda: "../envs/graph.yaml"
     shell:
         """
             if [[ -s {input.coverm} ]]; then
-                python phages/phages.workflow/scripts/joining_stats.py -c {input.coverm} -v {input.viralverify} -g {input.comp} -o {output.tsv}
+                python phage_genome_assembly/workflow/scripts/joining_stats.py -c {input.coverm} -v {input.viralverify} -g {input.comp} -o {output.tsv}
             fi
         """
 
@@ -25,9 +26,10 @@ rule join_assembly_stats_megahit:
         comp = os.path.join(ASSEMBLY, "{sample}-megahit", "graph_seq_details_megahit.tsv")
     output:
         tsv = os.path.join(ASSEMBLY, "{sample}-assembly-stats_megahit.tsv")
+    conda: "../envs/graph.yaml"
     shell:
         """
             if [[ -s {input.coverm} ]]; then
-                python phages/phages.workflow/scripts/joining_stats.py -c {input.coverm} -v {input.viralverify} -g {input.comp} -o {output.tsv}
+                python phage_genome_assembly/workflow/scripts/joining_stats.py -c {input.coverm} -v {input.viralverify} -g {input.comp} -o {output.tsv}
             fi        
         """

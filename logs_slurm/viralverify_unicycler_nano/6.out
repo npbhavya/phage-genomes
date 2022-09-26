@@ -1,0 +1,34 @@
+['/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python310.zip', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python3.10', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python3.10/lib-dynload', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python3.10/site-packages', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin/../scripts', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin/../db']
+viralVerify started as: 
+ /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin/viralverify -f example/assembly/reads-nanopore-unicycler/assembly.fasta --hmm databases/Pfam35.0/Pfam-A.hmm.gz -o example/assembly/reads-viralverify-unicycler_nano -t 10
+Gene prediction...
+HMM domains prediction...
+Parsing...
+Classification...
+Done!
+Verification results can be found in /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv
+Output files will be saved to directory, example
+
+Databases are being saved in, databases 
+
+Nanopore fastq files run through QC using filtlong, the outputs are saved to, example/filtlong
+
+Saving the assemblies here, example/assembly
+
+['/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python310.zip', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python3.10', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python3.10/lib-dynload', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/lib/python3.10/site-packages', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin/../scripts', '/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin/../db']
+viralVerify started as: 
+ /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/bd4637c900d76f842a9623ed7704aed7_/bin/viralverify -f example/assembly/reads-nanopore-unicycler/assembly.fasta --hmm databases/Pfam35.0/Pfam-A.hmm.gz -o example/assembly/reads-viralverify-unicycler_nano -t 10
+Gene prediction...
+HMM domains prediction...
+Parsing...
+Classification...
+Done!
+Verification results can be found in /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-viralverify-unicycler_nano/assembly_result_table.csv
+Output files will be saved to directory, example
+
+Databases are being saved in, databases 
+
+Nanopore fastq files run through QC using filtlong, the outputs are saved to, example/filtlong
+
+Saving the assemblies here, example/assembly
+

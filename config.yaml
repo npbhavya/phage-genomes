@@ -1,12 +1,6 @@
-Preprocess: longread
-customDatabaseDirectory: phages/phages.workflow/databases
-directories:
-  infile: illumina
-  infile-nano: nanopore
-  temp_directory: /scratch/user/nala0006/tmp
-input: test/nanopore-subset
-outdir: crassphage
-output: ../example
-sample_description: assembly and annotation
-sample_id: example2
-sequencing: longread
+customDatabaseDirectory: databases
+input: test/illumina-subset
+outdir: output
+output: example
+sequencing: paired
+temp_dir: tmp

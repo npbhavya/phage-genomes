@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=90000, disk_mb=1000, time=7200
+Select jobs to execute...
+
+[Mon Sep 26 15:23:39 2022]
+rule spades:
+    input: example/prinseq/reads_good_out_R1.fastq, example/prinseq/reads_good_out_R2.fastq
+    output: example/assembly/reads-spades/contigs.fasta, example/assembly/reads-spades/assembly_graph_with_scaffolds.gfa, example/assembly/reads-spades/contigs.paths
+    log: example/logs/spades_reads.log
+    jobid: 0
+    reason: Forced execution
+    wildcards: sample=reads
+    threads: 10
+    resources: mem_mb=90000, disk_mb=1000, tmpdir=/local/nala0006/1156991, time=7200
+
+
+            spades.py -1 example/prinseq/reads_good_out_R1.fastq -2 example/prinseq/reads_good_out_R2.fastq -o example/assembly/reads-spades -t 10 -m 90000 2> example/logs/spades_reads.log
+        
+Activating conda environment: phage_genome_assembly/workflow/conda/3d346cb464213d6d15c936ee0f3b183e_
+[Mon Sep 26 15:25:03 2022]
+Finished job 0.
+1 of 1 steps (100%) done

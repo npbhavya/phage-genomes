@@ -32,7 +32,7 @@ rule rotate_phage:
     shell:
         """
             export PYTHONPATH=/home/nala0006/opt/EdwardsLab:$PYTHONPATH
-            python phages/phages.workflow/scripts/rotate-phage.py -f {input.contigs} -l {input.tsv} --force > {output.fa} 2> {log}
+            python phage_genome_assembly/workflow/scripts/rotate-phage.py -f {input.contigs} -l {input.tsv} --force > {output.fa} 2> {log}
         """
 
 #reverse compliment as needed 
@@ -50,5 +50,5 @@ rule rc_phage:
     shell:
         """
             export PYTHONPATH=/home/nala0006/opt/EdwardsLab:$PYTHONPATH
-            python phages/phages.workflow/scripts/reverse_complement_fasta.py -d {params.indir} -k 8 -o {params.outdir} 2> {log}
+            python phage_genome_assembly/workflow/scripts/reverse_complement_fasta.py -d {params.indir} -k 8 -o {params.outdir} 2> {log}
         """

@@ -1,0 +1,152 @@
+
+[93m[1m[4mStarting Unicycler[0m [2m(2022-09-26 12:13:03)[0m
+[2m    Welcome to Unicycler, an assembly pipeline for bacterial genomes. Since you[0m
+[2mprovided only long reads, Unicycler will assemble the reads with miniasm and[0m
+[2mthen run repeated polishing rounds using Racon.[0m
+[2m    For more information, please see https://github.com/rrwick/Unicycler[0m
+
+Command: [1m/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/0a30fb7902fe024c53dee3ec0faff6fb_/bin/unicycler -l example/filtlong/reads-filtlong.fastq -o example/assembly/reads-nanopore-unicycler -t 10[0m
+
+Unicycler version: v0.5.0
+Using 10 threads
+
+The output directory already exists:
+  /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler
+
+Dependencies:
+  [4mProgram       Version   Status  [0m
+  [2mspades.py               not used[0m
+  racon         1.5.0     [32mgood[0m    
+  makeblastdb   2.13.0+   [32mgood[0m    
+  tblastn       2.13.0+   [32mgood[0m    
+
+
+[93m[1m[4mLoading reads[0m [2m(2022-09-26 12:13:04)[0m
+0 / 988 (0.0%)10 / 988 (1.0%) - 45,129 bp20 / 988 (2.0%) - 132,923 bp30 / 988 (3.0%) - 176,007 bp40 / 988 (4.0%) - 206,815 bp50 / 988 (5.1%) - 258,649 bp60 / 988 (6.1%) - 327,166 bp70 / 988 (7.1%) - 386,005 bp80 / 988 (8.1%) - 425,498 bp89 / 988 (9.0%) - 468,341 bp99 / 988 (10.0%) - 489,968 bp109 / 988 (11.0%) - 535,372 bp119 / 988 (12.0%) - 578,753 bp129 / 988 (13.1%) - 623,892 bp139 / 988 (14.1%) - 682,333 bp149 / 988 (15.1%) - 714,095 bp159 / 988 (16.1%) - 764,918 bp168 / 988 (17.0%) - 842,670 bp178 / 988 (18.0%) - 882,198 bp188 / 988 (19.0%) - 980,725 bp198 / 988 (20.0%) - 1,054,895 bp208 / 988 (21.1%) - 1,082,329 bp218 / 988 (22.1%) - 1,133,807 bp228 / 988 (23.1%) - 1,161,559 bp238 / 988 (24.1%) - 1,206,257 bp247 / 988 (25.0%) - 1,246,491 bp257 / 988 (26.0%) - 1,307,235 bp267 / 988 (27.0%) - 1,375,152 bp277 / 988 (28.0%) - 1,434,591 bp287 / 988 (29.0%) - 1,484,966 bp297 / 988 (30.1%) - 1,551,227 bp307 / 988 (31.1%) - 1,597,551 bp317 / 988 (32.1%) - 1,630,638 bp327 / 988 (33.1%) - 1,685,554 bp336 / 988 (34.0%) - 1,715,217 bp346 / 988 (35.0%) - 1,754,975 bp356 / 988 (36.0%) - 1,821,779 bp366 / 988 (37.0%) - 1,892,815 bp376 / 988 (38.1%) - 1,944,724 bp386 / 988 (39.1%) - 2,002,502 bp396 / 988 (40.1%) - 2,059,189 bp406 / 988 (41.1%) - 2,088,816 bp415 / 988 (42.0%) - 2,157,972 bp425 / 988 (43.0%) - 2,192,318 bp435 / 988 (44.0%) - 2,249,603 bp445 / 988 (45.0%) - 2,300,974 bp455 / 988 (46.1%) - 2,359,195 bp465 / 988 (47.1%) - 2,431,904 bp475 / 988 (48.1%) - 2,500,617 bp485 / 988 (49.1%) - 2,559,407 bp494 / 988 (50.0%) - 2,617,450 bp504 / 988 (51.0%) - 2,678,763 bp514 / 988 (52.0%) - 2,740,119 bp524 / 988 (53.0%) - 2,782,161 bp534 / 988 (54.0%) - 2,846,322 bp544 / 988 (55.1%) - 2,896,447 bp554 / 988 (56.1%) - 2,928,274 bp564 / 988 (57.1%) - 2,980,796 bp574 / 988 (58.1%) - 3,032,364 bp583 / 988 (59.0%) - 3,086,540 bp593 / 988 (60.0%) - 3,154,419 bp603 / 988 (61.0%) - 3,187,316 bp613 / 988 (62.0%) - 3,254,198 bp623 / 988 (63.1%) - 3,286,058 bp633 / 988 (64.1%) - 3,380,819 bp643 / 988 (65.1%) - 3,436,072 bp653 / 988 (66.1%) - 3,479,268 bp662 / 988 (67.0%) - 3,541,166 bp672 / 988 (68.0%) - 3,578,813 bp682 / 988 (69.0%) - 3,620,730 bp692 / 988 (70.0%) - 3,658,633 bp702 / 988 (71.1%) - 3,765,928 bp712 / 988 (72.1%) - 3,843,970 bp722 / 988 (73.1%) - 3,897,857 bp732 / 988 (74.1%) - 3,950,767 bp741 / 988 (75.0%) - 4,033,005 bp751 / 988 (76.0%) - 4,081,847 bp761 / 988 (77.0%) - 4,127,508 bp771 / 988 (78.0%) - 4,177,578 bp781 / 988 (79.0%) - 4,217,502 bp791 / 988 (80.1%) - 4,263,180 bp801 / 988 (81.1%) - 4,324,509 bp811 / 988 (82.1%) - 4,361,881 bp821 / 988 (83.1%) - 4,401,230 bp830 / 988 (84.0%) - 4,431,081 bp840 / 988 (85.0%) - 4,488,078 bp850 / 988 (86.0%) - 4,522,558 bp860 / 988 (87.0%) - 4,557,474 bp870 / 988 (88.1%) - 4,603,343 bp880 / 988 (89.1%) - 4,652,763 bp890 / 988 (90.1%) - 4,723,204 bp900 / 988 (91.1%) - 4,763,075 bp909 / 988 (92.0%) - 4,851,525 bp919 / 988 (93.0%) - 4,933,592 bp929 / 988 (94.0%) - 5,008,646 bp939 / 988 (95.0%) - 5,053,166 bp949 / 988 (96.1%) - 5,103,853 bp959 / 988 (97.1%) - 5,183,187 bp969 / 988 (98.1%) - 5,258,634 bp979 / 988 (99.1%) - 5,308,015 bp988 / 988 (100.0%) - 5,363,156 bp988 / 988 (100.0%) - 5,363,156 bp
+
+
+[93m[1m[4mAssembling contigs and long reads with miniasm[0m [2m(2022-09-26 12:13:04)[0m
+Saving to /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/01_assembly_reads.fastq:
+  988 long reads
+
+Finding overlaps with minimap... [32msuccess[0m
+  47,384 overlaps
+
+Assembling reads with miniasm... [32msuccess[0m
+  12 segments, 11 links
+
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/11_branching_paths_removed.gfa
+Merging segments into unitigs:
+  1 linear unitig
+  total size = 99,037 bp
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/12_unitig_graph.gfa
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/002_unitig_graph.gfa
+
+
+[93m[1m[4mPolishing miniasm assembly with Racon[0m [2m(2022-09-26 12:13:05)[0m
+[2m    Unicycler now uses Racon to polish the miniasm assembly. It does multiple[0m
+[2mrounds of polishing to get the best consensus. Circular unitigs are rotated[0m
+[2mbetween rounds such that all parts (including the ends) are polished well.[0m
+
+Saving to /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/racon_polish/polishing_reads.fastq:
+  988 long reads
+
+Polish       Assembly          Mapping[0m
+[4mround            size          quality[0m
+begin          99,037           556.38
+1             100,715           722.01
+2             100,721           722.98
+3             100,742           722.69
+
+Best polish: /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/racon_polish/011_rotated.fasta
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/13_racon_polished.gfa
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/003_racon_polished.gfa
+
+
+[93m[1m[4mAssembly complete[0m [2m(2022-09-26 12:13:12)[0m
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/assembly.gfa
+
+Output files will be saved to directory, example
+
+Databases are being saved in, databases 
+
+Nanopore fastq files run through QC using filtlong, the outputs are saved to, example/filtlong
+
+Saving the assemblies here, example/assembly
+
+
+[93m[1m[4mStarting Unicycler[0m [2m(2022-09-26 14:34:06)[0m
+[2m    Welcome to Unicycler, an assembly pipeline for bacterial genomes. Since you[0m
+[2mprovided only long reads, Unicycler will assemble the reads with miniasm and[0m
+[2mthen run repeated polishing rounds using Racon.[0m
+[2m    For more information, please see https://github.com/rrwick/Unicycler[0m
+
+Command: [1m/scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/phage_genome_assembly/workflow/conda/0a30fb7902fe024c53dee3ec0faff6fb_/bin/unicycler -l example/filtlong/reads-filtlong.fastq -o example/assembly/reads-nanopore-unicycler -t 10[0m
+
+Unicycler version: v0.5.0
+Using 10 threads
+
+The output directory already exists:
+  /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler
+
+Dependencies:
+  [4mProgram       Version   Status  [0m
+  [2mspades.py               not used[0m
+  racon         1.5.0     [32mgood[0m    
+  makeblastdb   2.13.0+   [32mgood[0m    
+  tblastn       2.13.0+   [32mgood[0m    
+
+
+[93m[1m[4mLoading reads[0m [2m(2022-09-26 14:34:09)[0m
+0 / 988 (0.0%)10 / 988 (1.0%) - 45,129 bp20 / 988 (2.0%) - 132,923 bp30 / 988 (3.0%) - 176,007 bp40 / 988 (4.0%) - 206,815 bp50 / 988 (5.1%) - 258,649 bp60 / 988 (6.1%) - 327,166 bp70 / 988 (7.1%) - 386,005 bp80 / 988 (8.1%) - 425,498 bp89 / 988 (9.0%) - 468,341 bp99 / 988 (10.0%) - 489,968 bp109 / 988 (11.0%) - 535,372 bp119 / 988 (12.0%) - 578,753 bp129 / 988 (13.1%) - 623,892 bp139 / 988 (14.1%) - 682,333 bp149 / 988 (15.1%) - 714,095 bp159 / 988 (16.1%) - 764,918 bp168 / 988 (17.0%) - 842,670 bp178 / 988 (18.0%) - 882,198 bp188 / 988 (19.0%) - 980,725 bp198 / 988 (20.0%) - 1,054,895 bp208 / 988 (21.1%) - 1,082,329 bp218 / 988 (22.1%) - 1,133,807 bp228 / 988 (23.1%) - 1,161,559 bp238 / 988 (24.1%) - 1,206,257 bp247 / 988 (25.0%) - 1,246,491 bp257 / 988 (26.0%) - 1,307,235 bp267 / 988 (27.0%) - 1,375,152 bp277 / 988 (28.0%) - 1,434,591 bp287 / 988 (29.0%) - 1,484,966 bp297 / 988 (30.1%) - 1,551,227 bp307 / 988 (31.1%) - 1,597,551 bp317 / 988 (32.1%) - 1,630,638 bp327 / 988 (33.1%) - 1,685,554 bp336 / 988 (34.0%) - 1,715,217 bp346 / 988 (35.0%) - 1,754,975 bp356 / 988 (36.0%) - 1,821,779 bp366 / 988 (37.0%) - 1,892,815 bp376 / 988 (38.1%) - 1,944,724 bp386 / 988 (39.1%) - 2,002,502 bp396 / 988 (40.1%) - 2,059,189 bp406 / 988 (41.1%) - 2,088,816 bp415 / 988 (42.0%) - 2,157,972 bp425 / 988 (43.0%) - 2,192,318 bp435 / 988 (44.0%) - 2,249,603 bp445 / 988 (45.0%) - 2,300,974 bp455 / 988 (46.1%) - 2,359,195 bp465 / 988 (47.1%) - 2,431,904 bp475 / 988 (48.1%) - 2,500,617 bp485 / 988 (49.1%) - 2,559,407 bp494 / 988 (50.0%) - 2,617,450 bp504 / 988 (51.0%) - 2,678,763 bp514 / 988 (52.0%) - 2,740,119 bp524 / 988 (53.0%) - 2,782,161 bp534 / 988 (54.0%) - 2,846,322 bp544 / 988 (55.1%) - 2,896,447 bp554 / 988 (56.1%) - 2,928,274 bp564 / 988 (57.1%) - 2,980,796 bp574 / 988 (58.1%) - 3,032,364 bp583 / 988 (59.0%) - 3,086,540 bp593 / 988 (60.0%) - 3,154,419 bp603 / 988 (61.0%) - 3,187,316 bp613 / 988 (62.0%) - 3,254,198 bp623 / 988 (63.1%) - 3,286,058 bp633 / 988 (64.1%) - 3,380,819 bp643 / 988 (65.1%) - 3,436,072 bp653 / 988 (66.1%) - 3,479,268 bp662 / 988 (67.0%) - 3,541,166 bp672 / 988 (68.0%) - 3,578,813 bp682 / 988 (69.0%) - 3,620,730 bp692 / 988 (70.0%) - 3,658,633 bp702 / 988 (71.1%) - 3,765,928 bp712 / 988 (72.1%) - 3,843,970 bp722 / 988 (73.1%) - 3,897,857 bp732 / 988 (74.1%) - 3,950,767 bp741 / 988 (75.0%) - 4,033,005 bp751 / 988 (76.0%) - 4,081,847 bp761 / 988 (77.0%) - 4,127,508 bp771 / 988 (78.0%) - 4,177,578 bp781 / 988 (79.0%) - 4,217,502 bp791 / 988 (80.1%) - 4,263,180 bp801 / 988 (81.1%) - 4,324,509 bp811 / 988 (82.1%) - 4,361,881 bp821 / 988 (83.1%) - 4,401,230 bp830 / 988 (84.0%) - 4,431,081 bp840 / 988 (85.0%) - 4,488,078 bp850 / 988 (86.0%) - 4,522,558 bp860 / 988 (87.0%) - 4,557,474 bp870 / 988 (88.1%) - 4,603,343 bp880 / 988 (89.1%) - 4,652,763 bp890 / 988 (90.1%) - 4,723,204 bp900 / 988 (91.1%) - 4,763,075 bp909 / 988 (92.0%) - 4,851,525 bp919 / 988 (93.0%) - 4,933,592 bp929 / 988 (94.0%) - 5,008,646 bp939 / 988 (95.0%) - 5,053,166 bp949 / 988 (96.1%) - 5,103,853 bp959 / 988 (97.1%) - 5,183,187 bp969 / 988 (98.1%) - 5,258,634 bp979 / 988 (99.1%) - 5,308,015 bp988 / 988 (100.0%) - 5,363,156 bp988 / 988 (100.0%) - 5,363,156 bp
+
+
+[93m[1m[4mAssembling contigs and long reads with miniasm[0m [2m(2022-09-26 14:34:09)[0m
+Saving to /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/01_assembly_reads.fastq:
+  988 long reads
+
+Finding overlaps with minimap... [32msuccess[0m
+  47,384 overlaps
+
+Assembling reads with miniasm... [32msuccess[0m
+  12 segments, 11 links
+
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/11_branching_paths_removed.gfa
+Merging segments into unitigs:
+  1 linear unitig
+  total size = 99,037 bp
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/12_unitig_graph.gfa
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/002_unitig_graph.gfa
+
+
+[93m[1m[4mPolishing miniasm assembly with Racon[0m [2m(2022-09-26 14:34:10)[0m
+[2m    Unicycler now uses Racon to polish the miniasm assembly. It does multiple[0m
+[2mrounds of polishing to get the best consensus. Circular unitigs are rotated[0m
+[2mbetween rounds such that all parts (including the ends) are polished well.[0m
+
+Saving to /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/racon_polish/polishing_reads.fastq:
+  988 long reads
+
+Polish       Assembly          Mapping[0m
+[4mround            size          quality[0m
+begin          99,037           556.38
+1             100,715           722.01
+2             100,721           722.98
+3             100,742           722.69
+
+Best polish: /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/racon_polish/011_rotated.fasta
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/miniasm_assembly/13_racon_polished.gfa
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/003_racon_polished.gfa
+
+
+[93m[1m[4mAssembly complete[0m [2m(2022-09-26 14:34:17)[0m
+Saving /scratch/user/nala0006/Bc-PhageSeq/github/phage-genomes/example/assembly/reads-nanopore-unicycler/assembly.gfa
+
+Output files will be saved to directory, example
+
+Databases are being saved in, databases 
+
+Nanopore fastq files run through QC using filtlong, the outputs are saved to, example/filtlong
+
+Saving the assemblies here, example/assembly
+
