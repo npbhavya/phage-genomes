@@ -1,6 +1,6 @@
 customDatabaseDirectory: databases
-input: test/illumina-subset
+input: ../Steno_phages
 outdir: output
-output: example
-sequencing: paired
+output: ../Steno_phage_output
+sequencing: longread
 temp_dir: tmp
