@@ -11,11 +11,11 @@ The final ouput is tab separated file providing the summary for each sample asse
 ## Install 
 Steps for installing this workflow 
 
-  git clone https://github.com/npbhavya/phage-genomes.git
-  cd phage-genomes
-  python setup.py install 
-  #confirm the workflow is installed by running the below command 
-  phage_genome_assembly --help
+    git clone https://github.com/npbhavya/phage-genomes.git
+    cd phage-genomes
+    python setup.py install 
+    #confirm the workflow is installed by running the below command 
+    phage_genome_assembly --help
   
  
 ## Installing databases
@@ -26,13 +26,13 @@ Steps for installing this workflow
 ## Running the workflow
 Only one command needs to be submitted to run all the above steps: QC, assembly and assembly stats
 
-  #For illumina reads, place the reads both forward and reverse reads to one directory
-  phage_genome_assembly run --input test/illumina-subset --output example --profile slurm 
-  
-  #For nanopore reads, place the reads, one file per sample in a directory
-  phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example 
-  
-  #To run either of the commands on the cluster, add --profile slurm to the command. For instance here is the command for longreads/nanopore reads 
-  phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example --profile slurm 
-  
+    #For illumina reads, place the reads both forward and reverse reads to one directory
+    phage_genome_assembly run --input test/illumina-subset --output example --profile slurm 
+
+    #For nanopore reads, place the reads, one file per sample in a directory
+    phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example 
+
+    #To run either of the commands on the cluster, add --profile slurm to the command. For instance here is the command for longreads/nanopore reads 
+    phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example --profile slurm 
+
   
