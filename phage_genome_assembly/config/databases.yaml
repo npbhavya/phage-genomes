@@ -1,0 +1,5 @@
+# config settings the user is NOT allowed to touch go in separate files
+# this example is for managing installation of database files
+mirror: "ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/"
+databaseFiles:
+ - Pfam35.0/Pfam-A.hmm.gz
