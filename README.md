@@ -2,9 +2,13 @@
 Phage genome assembly and annotation 
 
 Pure isolate phages seqeunced on Illumina (paired end) and Nanopore (long read) sequencing technology are processed through the following steps
-  - quality control 
-  - assembly 
-  - assembly statistics: read coverage of each contig, contig classification as bacterial/plasmid/viral and number of graph components
+  - quality control (Illumina: prinseq++, Nanopore: Filtlong)
+  - assembly (Illumina: SPAdes and Megahit, Nanopore: Flye and Unicycler)
+  - assembly statistics: 
+      - read coverage of each contig (CoverM), 
+      - contig classification as bacterial/plasmid/viral (viral verify)
+      - number of graph components (assembly graph files, python scripts added here)
+  
 The final ouput is tab separated file providing the summary for each sample assembly, with contig features.
 
 
@@ -35,4 +39,3 @@ Only one command needs to be submitted to run all the above steps: QC, assembly 
     #To run either of the commands on the cluster, add --profile slurm to the command. For instance here is the command for longreads/nanopore reads 
     phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example --profile slurm 
 
-  
