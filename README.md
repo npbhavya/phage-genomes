@@ -96,5 +96,19 @@ This section runs coverm again on the contigs to get read coverage across the co
       phage_genome_assembly contig --input test/nanopore-subset --preprocess longread --output ../example --phage-contigs ../example/phage_contigs/ --profile slurm
 
 **Output**
-
+The final output is saved to "example/coverage" directory. This directory includes the following files:
+  - tab separated files: includes the number of reads in bases that map to a particular position on the contigs.
+  
+  | Sample | Genome | coverage | Bases |
+  | ---  | ---  |----       | -- |
+  | Reads  | Test   | 0        | 0 |
+  
+  - *.bam drirectory containing two files 
+    - bam files
+    - *-bedtools-genomecov.tsv
+    
+     |Genome~Contig name | Genome position | Read coverage|
+     | ---- | ---- | --- | ---|
+     |Test~1 | 1 | 1200 |
+     
  
