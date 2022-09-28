@@ -108,7 +108,7 @@ The final output is saved to "example/coverage" directory. This directory includ
     - *-bedtools-genomecov.tsv
     
      |Genome~Contig name | Genome position | Read coverage|
-     | ---- | ---- | --- | ---|
+     | ---- | --- | ---|
      |Test~1 | 1 | 1200 |
      
  
