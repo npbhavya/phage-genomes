@@ -44,11 +44,11 @@ rule  terminase_download:
     params:
         url= os.path.join(config['terminase'])
     output:
-        os.path.join(databaseDir, 'terminase-db2022.zip')
+        o=os.path.join(databaseDir, 'terminase-db2022.zip'),
     shell:
         """
-            curl -Lo {output} {params.url}
-            unzip {output}
+            curl -Lo {output.o} {params.url}
+            unzip {output.o} -d {databaseDir}
         """
 
 rule  pharokka_download:
