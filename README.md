@@ -93,7 +93,7 @@ This section runs coverm again on the contigs to get read coverage across the co
 
 **Commands to run**
 
-      phage_genome_assembly run --input ../Steno_phages --preprocess longread --output ../Steno_phage_output --phage-contigs ../Steno_phage_output/phage_contigs_all/ --profile slurm
+      phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output ../example --phage-contigs ../example/phage_contigs/ --profile slurm
 
 **Output**
 
