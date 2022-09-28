@@ -18,8 +18,10 @@ include: "rules/1.preflight-database.smk"
 
 """TARGETS"""
 allDatabaseFiles = []
-for file in config['databaseFiles']:
-    allDatabaseFiles.append(os.path.join(databaseDir, file))
+
+allDatabaseFiles.append(os.path.join(databaseDir, config['pfam_file']))
+allDatabaseFiles.append(os.path.join(databaseDir, 'terminase-db2022.zip'))
+allDatabaseFiles.append(os.path.join(databaseDir, 'phrogs_db.index'))
 
 """RUN SNAKEMAKE"""
 rule all:
@@ -28,21 +30,34 @@ rule all:
 
 
 """RULES"""
-rule download_db_file:
-    """Generic rule to download a database file."""
-    output:
-        os.path.join(databaseDir, "{file}")
+rule pfam_download:
     params:
-        mirror = config['mirror']
-    run:
-        import urllib.request
-        import urllib.parse
-        import shutil
-        dlUrl1 = urllib.parse.urljoin(params.mirror, wildcards.file)
-        dlUrl2 = urllib.parse.urljoin(params.mirror, wildcards.file)
-        try:
-            with urllib.request.urlopen(dlUrl1) as r, open(output[0],'wb') as o:
-                shutil.copyfileobj(r,o)
-        except:
-            with urllib.request.urlopen(dlUrl2) as r, open(output[0],'wb') as o:
-                shutil.copyfileobj(r,o)
+        url=os.path.join(config['pfam'], config['pfam_file'])
+    output:
+        os.path.join(databaseDir, config['pfam_file'])
+    shell:
+        """
+            curl -Lo {output} {params.url}
+        """
+
+rule  terminase_download:
+    params:
+        url= os.path.join(config['terminase'])
+    output:
+        os.path.join(databaseDir, 'terminase-db2022.zip')
+    shell:
+        """
+            curl -Lo {output} {params.url}
+            unzip {output}
+        """
+
+rule  pharokka_download:
+    params: 
+        pharokka=os.path.join(databaseDir)
+    output:
+        out=os.path.join(databaseDir, 'pharokka_db')
+    conda: "envs/pharokka.yaml"
+    shell:
+        """
+            install_databases.py -o {params.pharokka}
+        """

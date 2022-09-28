@@ -16,8 +16,10 @@ if config['sequencing'] == 'paired':
     #coverage depths across the phage contigs
     genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads.tsv"), sample=CONTIGS))
     genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads-bam", "coverm-genome.{sample}_good_out_R1.fastq.bam"), sample=CONTIGS))
+    genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads-bam", "coverm-genome.{sample}_good_out_R1.fastq.bam.bai"), sample=CONTIGS))
     genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads-bam", "{sample}-Ill-bedtools-genomecov.tsv"), sample=CONTIGS))
 elif config['sequencing'] == 'longread':
     genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-NanoReads.tsv"), sample=CONTIGS))
     genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-NanoReads-bam", "coverm-genome.{sample}-filtlong.fastq.bam"), sample=CONTIGS))
+    genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads-bam", "coverm-genome.{sample}_good_out_R1.fastq.bai"), sample=CONTIGS))
     genomes.append(expand(os.path.join(OUTDIR, "coverage", "{sample}-NanoReads-bam", "{sample}-Nano-bedtools-genomecov.tsv"), sample=CONTIGS))

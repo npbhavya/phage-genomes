@@ -1,5 +1,6 @@
 # config settings the user is NOT allowed to touch go in separate files
 # this example is for managing installation of database files
-mirror: "ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/"
-databaseFiles:
- - Pfam35.0/Pfam-A.hmm.gz
+pfam: "ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/"
+pfam_file: 'Pfam35.0/Pfam-A.hmm.gz'
+
+terminase: "https://cloudstor.aarnet.edu.au/plus/s/wBRj33MT8SoCr7L/download"

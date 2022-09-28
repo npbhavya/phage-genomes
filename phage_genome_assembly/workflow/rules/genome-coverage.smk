@@ -26,6 +26,19 @@ rule genome_coverage_illumina:
             fi
         """
 
+localrules: index_bam
+#indexing the bam files generated 
+rule index_bam:
+    input:
+        bam= os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads-bam", "coverm-genome.{sample}_good_out_R1.fastq.bam")
+    output:
+        out=os.path.join(OUTDIR, "coverage", "{sample}-illuminaReads-bam", "coverm-genome.{sample}_good_out_R1.fastq.bam.bai")
+    conda: "../envs/samtools.yaml"
+    shell:
+        """
+            samtools index {input.bam} {output.out}
+        """
+
 #rule to calculate the read coverage per position 
 rule read_coverage_illumina:
     input:    

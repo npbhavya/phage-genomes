@@ -3,5 +3,6 @@ customDatabaseDirectory: databases
 input: ../Steno_phages
 outdir: output
 output: ../Steno_phage_output
+phage: ../Steno_phage_output/phage-final/
 sequencing: longread
 temp_dir: tmp
