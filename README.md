@@ -26,7 +26,12 @@ Steps for installing this workflow
   
  
 ## Installing databases
-  This workflow requires the Pfam35.0 database to run viral_verify for contig classification. This is done automagically when the below command is run. 
+  This workflow requires the 
+  - Pfam35.0 database to run viral_verify for contig classification. 
+  - large terminase subunit sequences, BLAST database 
+  - Pharokka databases 
+
+  This is done automagically when the below command is run. 
   
     phage_genome_assembly install database 
     
@@ -58,6 +63,7 @@ Only one command needs to be submitted to run all the above steps: QC, assembly 
     phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example --profile slurm 
 
 **Output**
+
 For each sample there should be a tab separated file for each assembler. For instance if test nanopore reads were run through the workflow, then there should be two files within the example/assembly directory
   - reads-assembly-stats_flye.tsv
   - reads-assembly-stats_unicycler.tsv
@@ -70,6 +76,7 @@ Each of these files shold contain the 12 columns with the folowing titles and re
 |0    |contig_1|43.97074                                 |100739   |False     |0          |contig_1   |Virus     |100739  |-         |40.06|Glucosaminidase HNH_3 UDG Asp_protease_2 NUMOD4 GIY-YIG Band_7 Ribonuc_red_lgC DUF1599 Radical_SAM Helicase_C DUF3799 dUTPase Thy1 Toprim_2 NUMOD1 DUF5675 DNA_pol_A_exo1 VWA ThiF AAA_33 NUMOD3 DNA_pol_A |
 
 ### Manual step
+
 **Pick the phage contigs** 
 
 From the output files, pick the phage contigs. These are the contigs that are 
@@ -79,6 +86,7 @@ From the output files, pick the phage contigs. These are the contigs that are
   - If circular phage, then under column 5 it would be listed as True.
   
 **Separating out only the phage contigs**
+
 Use samtools faidx to grab these contigs 
 
       #If samtools not installed 
@@ -101,6 +109,7 @@ This section runs coverm again on the contigs to get read coverage across the co
       phage_genome_assembly contig --input test/nanopore-subset --preprocess longread --output ../example --phage-contigs ../example/phage_contigs/ --profile slurm
 
 **Output**
+
 The final output is saved to "example/coverage" directory. This directory includes the following files:
   - tab separated files: includes the number of reads in bases that map to a particular position on the contigs.
   
@@ -117,6 +126,7 @@ The final output is saved to "example/coverage" directory. This directory includ
      |Test~1 | 1 | 1200 |
      
 ### Manual step
+
 **Pick a representative contig for each sample with the highest quality** 
 
 From the output files, pick one phage contig per sample. These are the contigs that are 
