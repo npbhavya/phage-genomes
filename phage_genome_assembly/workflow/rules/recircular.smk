@@ -7,6 +7,8 @@ rule terminase_search:
         contigs = os.path.join(GENOMEDIR, "{sample}.fasta"),
     output:
         tsv = os.path.join(OUTDIR, "recircular", "{sample}-terminase.tsv"),
+    params:
+        db=os.path.join(DATABASES, 'terminase')
     log:
         os.path.join(logs, "terminase_{sample}.log")
     conda: "../envs/blast.yaml"
@@ -15,8 +17,7 @@ rule terminase_search:
         mem_mb=64000
     shell:
         """
-            #makeblastdb -in /home/nala0006/db/terminase_seq.fasta -parse_seqids -dbtype prot -out /home/nala0006/db/terminase
-            blastx -db /home/nala0006/db/terminase -query {input} -num_threads {threads} -outfmt 6 -out {output.tsv} 
+            blastx -db {params.db} -query {input} -num_threads {threads} -outfmt 6 -out {output.tsv} 
         """
 
 localrules: rotate_phage
