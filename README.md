@@ -1,5 +1,5 @@
 # Phage genome toolkit 
-_Phage genome assembly and annotation_
+*Phage genome assembly and annotation*
 
 This workflow is divided into three sections
 1) Assembling the phage isolates using two assemblers and looking at the quality of the assembled contigs \
