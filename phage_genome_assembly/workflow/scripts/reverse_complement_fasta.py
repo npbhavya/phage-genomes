@@ -115,7 +115,7 @@ def count_kmers(dir, kmersize, outdir, verbose=False):
         ## what is the top one to change
         idx = df.sum(axis=1).sort_values(ascending=False).head(2).index
         nm = idx[0]
-        if nm == lastflip:
+        if nm == lastflip and len(idx) > 1:
             nm = idx[1]
         lastflip = nm
 
@@ -125,6 +125,7 @@ def count_kmers(dir, kmersize, outdir, verbose=False):
             sys.stderr.write(f"Total sum is {totalsum}. Found {nm} ({seen[nm]}) again. Breaking\n")
             break
         """
+
         seen[nm] = seen.get(nm, 0) + 1
         df.loc[nm] *= -1
         df[nm] *= -1

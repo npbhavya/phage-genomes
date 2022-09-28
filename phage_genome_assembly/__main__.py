@@ -43,6 +43,12 @@ def cli():
 
 help_msg_extra = """
 \b
+INSTALLING DATABASES REQUIRED
+This command downloads the databases to the directory 'database' 
+\b
+phage_genome_assembly install 
+\b
+\b
 CLUSTER EXECUTION:
 phage_genome_assembly run ... --profile [profile]
 For information on Snakemake profiles see:
@@ -59,12 +65,27 @@ Available targets:
     all             Run everything (default)
     print_targets   List available targets
     assembly        Assemble all the genomes multiple ways
-    phage_contigs   Picks one representative assembly per sample
-
-INSTALLING DATABASES REQUIRED
-phage_genome_assembly install 
-
-The above command downloads the databases to the directory 'database' 
+\b
+\b
+PHAGE CONTIG QUALITY CHECK
+Step 2 of the workflow checking the quality of the assembled contigs
+\b
+phage_genome_assembly contig ... --profile [profile]
+For information on Snakemake profiles see:
+https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles
+\b
+RUN EXAMPLES:
+Required:           phage_genome_assembly contig --input [file] --contigs [file]
+Specify threads:    phage_genome_assembly contig ... --threads [threads]
+Disable conda:      phage_genome_assembly contig ... --no-use-conda 
+Change defaults:    phage_genome_assembly contig ... --snake-default="-k --nolock"
+Add Snakemake args: phage_genome_assembly contig ... --dry-run --keep-going --touch
+Specify targets:    phage_genome_assembly contig ... all genomes
+Available targets:
+    all             Run everything (default)
+    genomes   List available targets
+\b
+\b
 """
 
 @click.command(epilog=help_msg_extra, context_settings=dict(help_option_names=["-h", "--help"], ignore_unknown_options=True))
@@ -115,6 +136,40 @@ def run(_input, preprocess, configfile, output, threads, use_conda, conda_prefix
         snake_extra=snake_args,
     )
 
+@click.command(epilog=help_msg_extra, context_settings=dict(help_option_names=["-h", "--help"], ignore_unknown_options=True))
+@click.option('--input', '_input', help='Input file/directory', type=str, required=True)
+@click.option('--preprocess', help="sequencing method", default='paired', show_default=True,
+                     type=click.Choice(['paired', 'longread']))
+@click.option('--phage-contigs', '_contigs', help="phage contigs picked from assemblies", required=True)
+
+@common_options
+def contig(_input, _contigs, preprocess, configfile, output, threads, use_conda, conda_prefix, snake_default,
+        snake_args, **kwargs):
+    """Run phage_contig_quality_check"""
+
+    # copy default config file if missing
+    copy_config(configfile, system_config=snake_base(os.path.join('config', 'config.yaml')))
+
+    # Config to add or update in configfile
+    merge_config = {
+        'input': _input,
+        'output': output,
+        'sequencing': preprocess,
+        'contigs': _contigs,
+        }
+
+    # run!
+    run_snakemake(
+        snakefile_path=snake_base(os.path.join('workflow', 'contig.smk')),   # Full path to Snakefile
+        configfile=configfile,
+        merge_config=merge_config,
+        threads=threads,
+        use_conda=use_conda,
+        conda_prefix=conda_prefix,
+        snake_default_args=snake_default,
+        snake_extra=snake_args,
+    )
+
 
 @click.command()
 @click.option('--configfile', default='config.yaml', help='Copy template config to file', show_default=True)
@@ -131,6 +186,7 @@ def citation(**kwargs):
 
 cli.add_command(run)
 cli.add_command(install)
+cli.add_command(contig)
 cli.add_command(config)
 cli.add_command(citation)
 

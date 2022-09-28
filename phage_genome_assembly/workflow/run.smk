@@ -67,14 +67,6 @@ if config['sequencing'] == 'paired':
 elif config['sequencing'] == 'longread':
     include: "rules/assembly_stats_join_nano.smk"
 
-"""
-#Recircularise
-include: "rules/recircular.smk"
-
-#phage contigs assessment
-include: "rules/genome-coverage.smk"
-include: "rules/genome-coverage-nano.smk"
-"""
 
 """RUN SNAKEMAKE!"""
 rule all:
@@ -85,8 +77,3 @@ rule all:
 rule assembly:
     input:
         allTargets
-
-#rule for assessing contig quality
-rule phage_contigs:
-    input:
-        genomes

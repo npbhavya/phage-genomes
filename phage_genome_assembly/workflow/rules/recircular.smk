@@ -19,6 +19,7 @@ rule terminase_search:
             blastx -db /home/nala0006/db/terminase -query {input} -num_threads {threads} -outfmt 6 -out {output.tsv} 
         """
 
+localrules: rotate_phage
 #rotate phage to start with terminase gene 
 rule rotate_phage:
     input:
@@ -31,10 +32,10 @@ rule rotate_phage:
     conda: "../envs/graph.yaml"
     shell:
         """
-            export PYTHONPATH=/home/nala0006/opt/EdwardsLab:$PYTHONPATH
             python phage_genome_assembly/workflow/scripts/rotate-phage.py -f {input.contigs} -l {input.tsv} --force > {output.fa} 2> {log}
         """
 
+localrules: rc_phage
 #reverse compliment as needed 
 rule rc_phage:
     input:
@@ -49,6 +50,5 @@ rule rc_phage:
     conda: "../envs/graph.yaml"
     shell:
         """
-            export PYTHONPATH=/home/nala0006/opt/EdwardsLab:$PYTHONPATH
             python phage_genome_assembly/workflow/scripts/reverse_complement_fasta.py -d {params.indir} -k 8 -o {params.outdir} 2> {log}
         """

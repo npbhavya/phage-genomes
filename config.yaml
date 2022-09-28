@@ -1,3 +1,4 @@
+contigs: ../Steno_phage_output/phage_contigs_all/
 customDatabaseDirectory: databases
 input: ../Steno_phages
 outdir: output
