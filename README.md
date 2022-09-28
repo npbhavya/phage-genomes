@@ -1,5 +1,5 @@
 # Phage genome toolkit 
-*Phage genome assembly and annotation*
+**Phage genome assembly and annotation**
 
 This workflow is divided into three sections
 1) Assembling the phage isolates using two assemblers and looking at the quality of the assembled contigs \
@@ -29,7 +29,7 @@ Steps for installing this workflow
 
 ### Step 1) Assembling phage genoems 
 
-_Steps in this section of workflow_
+**Steps in this section of workflow**
 Pure isolate phages seqeunced on Illumina (paired end) and Nanopore (long read) sequencing technology are processed through the following steps
   - quality control (Illumina: prinseq++, Nanopore: Filtlong)
   - assembly (Illumina: SPAdes and Megahit, Nanopore: Flye and Unicycler)
@@ -40,7 +40,7 @@ Pure isolate phages seqeunced on Illumina (paired end) and Nanopore (long read) 
   
 The final ouput is tab separated file providing the summary for each sample assembly, with contig features.
 
-_Commands to run_
+**Commands to run**
 Only one command needs to be submitted to run all the above steps: QC, assembly and assembly stats
 
     #For illumina reads, place the reads both forward and reverse reads to one directory
@@ -52,7 +52,7 @@ Only one command needs to be submitted to run all the above steps: QC, assembly 
     #To run either of the commands on the cluster, add --profile slurm to the command. For instance here is the command for longreads/nanopore reads 
     phage_genome_assembly run --input test/nanopore-subset --preprocess longread --output example --profile slurm 
 
-_Output_
+**Output**
 For each sample there should be a tab separated file for each assembler. For instance if test nanopore reads were run through the workflow, then there should be two files within the example/assembly directory
   - reads-assembly-stats_flye.tsv
   - reads-assembly-stats_unicycler.tsv
@@ -65,7 +65,7 @@ Each of these files shold contain the 12 columns with the folowing titles and re
 |0    |contig_1|43.97074                                 |100739   |False     |0          |contig_1   |Virus     |100739  |-         |40.06|Glucosaminidase HNH_3 UDG Asp_protease_2 NUMOD4 GIY-YIG Band_7 Ribonuc_red_lgC DUF1599 Radical_SAM Helicase_C DUF3799 dUTPase Thy1 Toprim_2 NUMOD1 DUF5675 DNA_pol_A_exo1 VWA ThiF AAA_33 NUMOD3 DNA_pol_A |
 
 ### Manual step
-_Pick the phage contigs_ 
+**Pick the phage contigs** 
 
 From the output files, pick the phage contigs. These are the contigs that are 
   - Under column "Predictions" or 8, predicted as "Virus"
@@ -73,7 +73,7 @@ From the output files, pick the phage contigs. These are the contigs that are
   - Under column 4 or 9, the genome size will be the same as the phage contig length.
   - If circular phage, then under column 5 it would be listed as True.
   
-_Separating out only the phage contigs_ 
+**Separating out only the phage contigs**
 Use samtools faidx to grab these contigs 
 
       #If samtools not installed 
@@ -91,10 +91,10 @@ The selected phage contigs should be saved in fasta format for each sample, and 
 
 This section runs coverm again on the contigs to get read coverage across the contig, and recircularises them so they begin with the large terminase gene, and all phages are in the same orientation (no reverse complements).
 
-_Commands to run_
+**Commands to run**
 
       phage_genome_assembly run --input ../Steno_phages --preprocess longread --output ../Steno_phage_output --phage-contigs ../Steno_phage_output/phage_contigs_all/ --profile slurm
 
-_Output_
+**Output**
 
  
