@@ -137,6 +137,16 @@ From the output files, pick one phage contig per sample. These are the contigs t
   
   Move the representative assembly from recircular-rc to its own directory (For instance: Phage-contigs-final)
   
-### Annotation 
+### Step 3) Annotation 
 
-    
+**Annotate the phage genomes**
+Runs Pharokka to annotate the genomes. 
+
+**Command**
+Save the phage genomes to a new directory (in this case, I named the directory phage-final)
+  
+      phage_genome_assembly annotate --phage ../example/phage-final/ --output ../example --profile slurm
+
+**Output**
+The output will be saved to "example/pharokka" directory
+
