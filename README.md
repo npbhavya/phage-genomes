@@ -4,11 +4,16 @@
 This workflow is divided into three sections
 1) Assembling the phage isolates using two assemblers and looking at the quality of the assembled contigs \
   Often there are other bacterial, plasmid and prophage contigs along with the phage isolates assembled from the sequences. If there are lots of contigs assembled, then the end of this section requires a manual step. 
+  
   Go through the tsv file for each sample, that lists the contig statistics to pick the phage contigs, often these are contigs with highest coverage, look at the genome length - 30 to 50 kbp (or similar to the genome size), and maybe even circular components. 
   Select these contigs and pull them out to new file
   
 2) Checking the coverage of the phage genome and variation within the assembled contig
   The selected phage contigs should be saved in fasta format for each sample, and saved in a directory. This section runs coverm again on the contigs to get read coverage across the contig, and recircularises them so they begin with the large terminase gene, and all phages are in the same orientation (no reverse complements).
+
+  Go through the coverage of the phage contigs to confirm there is even coverage. Pick a represenative contig for each sample across assemblies that seems like the highest quality
+  
+3) Annotation: Running Pharokka 
 
 ## Install 
 Steps for installing this workflow 
@@ -111,4 +116,17 @@ The final output is saved to "example/coverage" directory. This directory includ
      | ---- | --- | ---|
      |Test~1 | 1 | 1200 |
      
- 
+### Manual step
+**Pick a representative contig for each sample with the highest quality** 
+
+From the output files, pick one phage contig per sample. These are the contigs that are 
+  - even read coverage across the whole genome 
+  - longest contig
+  - align the different assemblies and see how many nucleotides are different
+  - visualize the read coverge on Tablet
+  
+  Move the representative assembly from recircular-rc to its own directory (For instance: Phage-contigs-final)
+  
+### Annotation 
+
+    
