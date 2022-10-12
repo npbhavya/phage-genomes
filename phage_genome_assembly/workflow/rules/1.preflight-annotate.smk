@@ -37,7 +37,7 @@ if (os.path.exists(OUTDIR)==True):
         sys.stderr.write("\nWe don't know how to handle these\n")
         sys.exit(0)
     else:
-        print(f"Found the phgages, sample: {GEN}")
+        print(f"Found the phages, sample: {GEN}")
             
         PHAGEDIR = os.path.join(OUTDIR, GENOMES)
 

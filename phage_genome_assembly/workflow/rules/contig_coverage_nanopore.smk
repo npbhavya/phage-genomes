@@ -30,7 +30,7 @@ rule contig_coverage_flye_nano:
     output:
         tsv = os.path.join(ASSEMBLY, "{sample}-flye", "{sample}-contigs.tsv")
     log:
-        os.path.join(logs, "coverm_flye_illumina_{sample}.log")
+        os.path.join(logs, "coverm_flye_nanopore_{sample}.log")
     conda: "../envs/coverm.yaml"
     threads: 10
     resources:

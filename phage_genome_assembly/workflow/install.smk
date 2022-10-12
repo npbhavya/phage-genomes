@@ -21,7 +21,7 @@ allDatabaseFiles = []
 
 allDatabaseFiles.append(os.path.join(databaseDir, config['pfam_file']))
 allDatabaseFiles.append(os.path.join(databaseDir, 'terminase-db2022.zip'))
-allDatabaseFiles.append(os.path.join(databaseDir, 'phrogs_db.index'))
+allDatabaseFiles.append(os.path.join(databaseDir, 'pharokka_db', 'phrogs_db.index'))
 
 """RUN SNAKEMAKE"""
 rule all:
@@ -53,9 +53,9 @@ rule  terminase_download:
 
 rule  pharokka_download:
     params: 
-        pharokka=os.path.join(databaseDir)
+        pharokka=os.path.join(databaseDir, 'pharokka_db')
     output:
-        out=os.path.join(databaseDir, 'pharokka_db')
+        out=os.path.join(databaseDir, 'pharokka_db', 'phrogs_db.index')
     conda: "envs/pharokka.yaml"
     shell:
         """
