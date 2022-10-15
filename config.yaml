@@ -2,7 +2,7 @@ contigs: ../Steno_phage_output/phage_contigs_all/
 customDatabaseDirectory: databases
 input: ../Steno_bacteria
 outdir: output
-output: ../salmonella
-phage: ../salmonella/phage-final
+output: ../crassphage
+phage: ../crassphage/phage_finalset
 sequencing: longread
 temp_dir: tmp

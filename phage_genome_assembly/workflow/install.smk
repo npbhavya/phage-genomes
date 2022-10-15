@@ -61,3 +61,13 @@ rule  pharokka_download:
         """
             install_databases.py -o {params.pharokka}
         """
+
+rule refseq_mash:
+    params:
+        refseq = os.path.join(databaseDir, 'mash_index')
+    output:
+        out=os.path.join(databaseDir, 'mash_index', 'refseq.genomes.k21s1000.msh')
+    shell:
+        """
+            wget {params.refseq}
+        """

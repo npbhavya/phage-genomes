@@ -83,8 +83,26 @@ Available targets:
     all             Run everything (default)
 \b
 \b
+PHAGE TAXA ASSIGNMENT
+Step 3 of the workflow checking the quality of the assembled contigs
+\b
+phage_genome_assembly taxa ... --profile [profile]
+For information on Snakemake profiles see:
+https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles
+\b
+RUN EXAMPLES:
+Required:           phage_genome_assembly taxa --phage [file]
+Specify threads:    phage_genome_assembly taxa ... --threads [threads]
+Disable conda:      phage_genome_assembly taxa ... --no-use-conda 
+Change defaults:    phage_genome_assembly taxa ... --snake-default="-k --nolock"
+Add Snakemake args: phage_genome_assembly taxa ... --dry-run --keep-going --touch
+Specify targets:    phage_genome_assembly taxa ... all 
+Available targets:
+    all             Run everything (default)
+\b
+\b
 PHAGE ANNOTATION
-Step 2 of the workflow checking the quality of the assembled contigs
+Step 4 of the workflow checking the quality of the assembled contigs
 \b
 phage_genome_assembly annotate ... --profile [profile]
 For information on Snakemake profiles see:
@@ -215,6 +233,35 @@ def annotate(_phage, configfile, output, threads, use_conda, conda_prefix, snake
         snake_extra=snake_args,
     )
 
+@click.command(epilog=help_msg_extra, context_settings=dict(help_option_names=["-h", "--help"], ignore_unknown_options=True))
+@click.option('--phage', '_phage', help='Input file/directory', type=str, required=True)
+
+@common_options
+def taxa(_phage, configfile, output, threads, use_conda, conda_prefix, snake_default,
+        snake_args, **kwargs):
+    """Run phage_contig_quality_check"""
+
+    # copy default config file if missing
+    copy_config(configfile, system_config=snake_base(os.path.join('config', 'config.yaml')))
+
+    # Config to add or update in configfile
+    merge_config = {
+        'phage': _phage,
+        'output': output,
+        }
+
+    # run!
+    run_snakemake(
+        snakefile_path=snake_base(os.path.join('workflow', 'taxa.smk')),   # Full path to Snakefile
+        configfile=configfile,
+        merge_config=merge_config,
+        threads=threads,
+        use_conda=use_conda,
+        conda_prefix=conda_prefix,
+        snake_default_args=snake_default,
+        snake_extra=snake_args,
+    )
+
 
 @click.command()
 @click.option('--configfile', default='config.yaml', help='Copy template config to file', show_default=True)
@@ -232,6 +279,7 @@ def citation(**kwargs):
 cli.add_command(run)
 cli.add_command(install)
 cli.add_command(contig)
+cli.add_command(taxa)
 cli.add_command(annotate)
 cli.add_command(config)
 cli.add_command(citation)
