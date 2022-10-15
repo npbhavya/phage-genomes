@@ -26,6 +26,7 @@ include: "rules/2.targets-taxa.smk"
 Add rules files with the include directive here, or add rules AFTER rule 'all'.
 """
 include:"rules/mash.smk"
+include:"rules/taxa_blast.smk"
 
 """RUN SNAKEMAKE!"""
 rule all:
